@@ -1,0 +1,38 @@
+<app-main-container [title]="title" [back]="true" (backEvent)="onBack()">
+    <form class="form" (ngSubmit)="submitForm()" [formGroup]="form">
+        <mat-form-field class="form__field" appearance="fill">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Full Name" type="text" [formControlName]="formFieldNames.FULL_NAME" required>
+        </mat-form-field>
+
+        <mat-form-field class="form__field" appearance="fill">
+            <mat-label>Card Number</mat-label>
+            <input matInput placeholder="Card Number" type="number" [formControlName]="formFieldNames.CARD_NUMBER" required>
+        </mat-form-field>
+
+        <div class="inline">
+            <div class="inline__item">
+                <mat-form-field class="form__field" appearance="fill">
+                    <mat-label>Month</mat-label>
+                    <input matInput placeholder="Month" type="number" [formControlName]="formFieldNames.EXPIRY_MONTH" required>
+                </mat-form-field>
+
+            </div>
+            <div class="inline__item">
+                <mat-form-field class="form__field" appearance="fill">
+                    <mat-label>Year</mat-label>
+                    <input matInput placeholder="Year" type="number" [formControlName]="formFieldNames.EXPIRY_YEAR" required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form__field form__field_action">
+            <button mat-raised-button color="primary">{{ data && data.id ? 'Update' : 'Save' }}</button>
+        </div>
+
+        <div class="form__field form__field_action" *ngIf="data && data.id" (click)="onDelete()">
+            <button mat-raised-button color="warn" type="button">Delete</button>
+        </div>
+    </form>
+
+</app-main-container>

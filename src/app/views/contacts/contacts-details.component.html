@@ -1,0 +1,28 @@
+<app-main-container [title]="title" [back]="true" (backEvent)="onBack()">
+    <form class="form" (ngSubmit)="submitForm()" [formGroup]="form">
+        <mat-form-field class="form__field" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" type="text" [formControlName]="formFieldNames.FIRST_NAME" required>
+        </mat-form-field>
+
+        <mat-form-field class="form__field" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" type="text" [formControlName]="formFieldNames.LAST_NAME" required>
+        </mat-form-field>
+
+        <mat-form-field class="form__field" appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="username@domain.com" type="email" [formControlName]="formFieldNames.EMAIL" required>
+            <mat-error *ngIf="form.get(formFieldNames.EMAIL).invalid">{{ getEmailErrorMessage() }}</mat-error>
+        </mat-form-field>
+
+        <div class="form__field form__field_action">
+            <button mat-raised-button color="primary">{{ data && data.id ? 'Update' : 'Save' }}</button>
+        </div>
+
+        <div class="form__field form__field_action" *ngIf="data && data.id" (click)="onDelete()">
+            <button mat-raised-button color="warn" type="button">Delete</button>
+        </div>
+    </form>
+
+</app-main-container>

@@ -1,0 +1,21 @@
+<form class="auth-form" (ngSubmit)="submitForm()" [formGroup]="form">
+    <div class="auth-form__field auth-form__field_title">
+        <div>PAYMENTER</div>
+        <small>by Lucky Soft</small>
+    </div>
+
+    <mat-form-field class="auth-form__field" appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="username@domain.com" type="email" [formControlName]="formFieldNames.username" required>
+        <mat-error *ngIf="form.get('username').invalid">{{ getUsernameErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="auth-form__field" appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput placeholder="Password" type="password" [formControlName]="formFieldNames.password" required>
+    </mat-form-field>
+
+    <div class="auth-form__field auth-form__field_action">
+        <button mat-raised-button color="primary">Sign In</button>
+    </div>
+</form>

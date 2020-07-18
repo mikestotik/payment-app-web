@@ -1,0 +1,8 @@
+<div class="payment-card">
+    <i class="payment-card__type">{{ data.cardNumber | cardType }}</i>
+    <div class="payment-card__name">{{ data.fullName | uppercase }}</div>
+    <div class="payment-card__info">
+        <div class="number">{{ data.cardNumber | cardHide }}</div>
+        <div class="expiry">{{ data.expiryMonth }}/{{ data.expiryYear.toString().slice(-2) }}</div>
+    </div>
+</div>

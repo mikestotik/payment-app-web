@@ -1,0 +1,9 @@
+{
+  "/core/*": {
+    "target": "http://35.228.3.62:8080",
+    "secure": false,
+    "pathRewrite": {
+      "^/core": ""
+    }
+  }
+}

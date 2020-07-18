@@ -1,0 +1,10 @@
+<div class="transaction">
+    <div class="transaction__info">
+        <div># {{ data.id }}</div>
+        <span>{{ data.created | dateFormat: 'DD.MM.YYYY - h:mm' }}</span>
+    </div>
+    <div class="transaction__sub-info">
+        <strong>Amount: {{ data.amount }} $</strong>
+        <i>{{ data.methodType }}</i>
+    </div>
+</div>

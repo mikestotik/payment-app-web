@@ -1,0 +1,17 @@
+<div class="root-container">
+    <div class="phone-container" *ngIf="!mobileDevice">
+        <div class="phone">
+            <div class="phone__content">
+                <router-outlet></router-outlet>
+            </div>
+
+            <div class="phone__home">
+                <div class="button" routerLink="/"></div>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet *ngIf="mobileDevice"></router-outlet>
+</div>
+
+
