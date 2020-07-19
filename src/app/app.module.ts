@@ -11,8 +11,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
-import { JwtInterceptorService } from './core/auth/interceptors/jwt-interceptor.service';
-import { TokenInterceptor } from './core/auth/interceptors/token-interceptor.service';
+import { AuthJwtInterceptor } from './core/auth/interceptors/auth-jwt.interceptor';
+import { TokenInterceptor } from './core/auth/interceptors/auth-token.interceptor';
 import { entityConfig } from './entity-metadata';
 import { ContactsModule } from './models/contacts/contacts.module';
 import { ContactEffect } from './models/contacts/store/contact.effect';
@@ -69,7 +69,7 @@ import { metaReducers, reducers } from './store';
         },
         {
             provide: HTTP_INTERCEPTORS,
-            useClass: JwtInterceptorService,
+            useClass: AuthJwtInterceptor,
             multi: true
         }
     ],

@@ -3,8 +3,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { AuthGuard } from './auth.guard';
 import { AuthResource } from './auth.resource';
 import { AuthService } from './auth.service';
-import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
-import { TokenInterceptor } from './interceptors/token-interceptor.service';
+import { AuthJwtInterceptor } from './interceptors/auth-jwt.interceptor';
+import { TokenInterceptor } from './interceptors/auth-token.interceptor';
 import { TokenService } from './token.service';
 
 @NgModule({
@@ -20,7 +20,7 @@ export class AuthModule {
             providers: [
                 AuthService,
                 AuthResource,
-                JwtInterceptorService,
+                AuthJwtInterceptor,
                 TokenInterceptor,
                 TokenService,
                 AuthGuard

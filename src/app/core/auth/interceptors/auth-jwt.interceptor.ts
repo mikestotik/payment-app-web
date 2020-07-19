@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
 
 @Injectable()
-export class JwtInterceptorService implements HttpInterceptor {
+export class AuthJwtInterceptor implements HttpInterceptor {
 
   constructor(
     public auth: AuthService) {}
