@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
 import { AuthJwtInterceptor } from './core/auth/interceptors/auth-jwt.interceptor';
 import { TokenInterceptor } from './core/auth/interceptors/auth-token.interceptor';
+import { AuthEffect } from './core/auth/store/auth.effect';
 import { entityConfig } from './entity-metadata';
 import { ContactsModule } from './models/contacts/contacts.module';
 import { ContactEffect } from './models/contacts/store/contact.effect';
@@ -52,7 +53,8 @@ import { metaReducers, reducers } from './store';
             ContactEffect,
             PaymentCardEffect,
             PaymentAccountEffect,
-            PaymentEffect
+            PaymentEffect,
+            AuthEffect
         ]),
         StoreRouterConnectingModule.forRoot(),
         EntityDataModule.forRoot(entityConfig),

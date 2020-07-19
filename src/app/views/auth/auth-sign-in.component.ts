@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ERROR_MESSAGE } from '../../config/messages.config';
 import { ROUTE_CONFIG } from '../../config/routes.config';
-import { AuthService } from '../../core/auth/auth.service';
+import { Auth2Service } from '../../core/auth/auth2.service';
 
 // todo: move to CONFIG
 const AUTH_SIGN_IN_FORM_FIELD_NAMES = {
@@ -24,7 +24,7 @@ export class AuthSignInComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private authService: AuthService,
+        private authService: Auth2Service,
         private router: Router,
         private snackBar: MatSnackBar) {
     }

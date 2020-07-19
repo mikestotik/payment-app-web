@@ -9,13 +9,13 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AuthService } from '../auth.service';
+import { Auth2Service } from '../auth2.service';
 
 @Injectable()
 export class AuthJwtInterceptor implements HttpInterceptor {
 
   constructor(
-    public auth: AuthService) {}
+    public auth: Auth2Service) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 

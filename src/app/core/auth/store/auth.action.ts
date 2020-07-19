@@ -5,10 +5,9 @@ export enum AuthActionTypes {
   AUTHENTICATE = '[Auth] Authenticate',
   AUTHENTICATED_SUCCESSFUL = '[Auth] Authenticated Success',
   AUTHENTICATED_FAILURE = '[Auth] Authenticated Failure',
-  CLEAR_TOKEN = '[Auth] Clear token',
+  RESET_TOKEN = '[Auth] Clear token',
 }
 
-// Save
 export class Authenticate implements Action {
   readonly type = AuthActionTypes.AUTHENTICATE;
 
@@ -27,12 +26,12 @@ export class AuthenticatedFailure implements Action {
   constructor(public payload: { error: any }) {}
 }
 
-export class ClearAuthToken implements Action {
-  readonly type = AuthActionTypes.CLEAR_TOKEN;
+export class ResetAuthToken implements Action {
+  readonly type = AuthActionTypes.RESET_TOKEN;
 }
 
 export type AuthActionsUnion =
   | Authenticate
   | AuthenticatedSuccessful
   | AuthenticatedFailure
-  | ClearAuthToken;
+  | ResetAuthToken;
