@@ -8,6 +8,20 @@
   .list-item {
     margin-bottom: 8px;
   }
+
+  .form {
+    &__field {
+      width: 100%;
+
+      &_action {
+        margin-top: 16px;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 .phone-container {

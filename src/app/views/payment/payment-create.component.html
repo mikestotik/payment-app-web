@@ -4,8 +4,8 @@
         (backEvent)="onBack()"
 >
     <form class="make-payment" (ngSubmit)="submitForm()" [formGroup]="form">
-        <div class="make-payment__field">
-            <button *ngIf="!contact" mat-raised-button type="button" [routerLink]="contactsLink" [queryParams]="{from: fromPayment}">
+        <div class="make-payment__field" [routerLink]="contactsLink" [queryParams]="{from: fromPayment}">
+            <button *ngIf="!contact" mat-raised-button type="button">
                 Select Contact
             </button>
 
@@ -19,8 +19,8 @@
             </div>
         </div>
 
-        <div class="make-payment__field">
-            <button *ngIf="!paymentCard && !paymentAccount" mat-raised-button type="button" [routerLink]="methodsLink" [queryParams]="{from: fromPayment}">
+        <div class="make-payment__field" [routerLink]="methodsLink" [queryParams]="{from: fromPayment}">
+            <button *ngIf="!paymentCard && !paymentAccount" mat-raised-button type="button">
                 Select Payment Method
             </button>
 
