@@ -6,6 +6,11 @@ import { AuthSignInComponent } from '../views/auth/auth-sign-in.component';
 @NgModule({
   imports: [ RouterModule.forChild([
     {
+      path: '',
+      redirectTo: ROUTE_CONFIG.AUTH.SEGMENTS.SIGN_IN,
+      pathMatch: 'full'
+    },
+    {
       path: ROUTE_CONFIG.AUTH.SEGMENTS.SIGN_IN,
       component: AuthSignInComponent
     }

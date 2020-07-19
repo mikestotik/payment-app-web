@@ -1,13 +1,17 @@
 <div class="main">
     <div class="main__action">
-        <button mat-raised-button [routerLink]="paymentsUrl">Payments</button>
+        <button mat-raised-button color="primary" [routerLink]="paymentsUrl">Payments</button>
     </div>
 
     <div class="main__action">
-        <button mat-raised-button [routerLink]="contactsUrl">Contacts</button>
+        <button mat-raised-button color="primary" [routerLink]="contactsUrl">Contacts</button>
     </div>
 
     <div class="main__action">
-        <button mat-raised-button [routerLink]="methodsUrl">Payment Method</button>
+        <button mat-raised-button color="primary" [routerLink]="methodsUrl">Payment Method</button>
+    </div>
+
+    <div class="main__action main__action_bottom">
+        <button mat-raised-button [routerLink]="authUrl">Log Out</button>
     </div>
 </div>

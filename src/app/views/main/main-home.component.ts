@@ -11,6 +11,7 @@ export class MainHomeComponent implements OnInit {
     public paymentsUrl = ROUTE_CONFIG.PAYMENT.getRootPath();
     public contactsUrl = ROUTE_CONFIG.CONTACTS.getRootPath();
     public methodsUrl = ROUTE_CONFIG.METHODS.getRootPath();
+    public authUrl = ROUTE_CONFIG.AUTH.getRootPath();
 
     public ngOnInit(): void { }
 
