@@ -1,4 +1,5 @@
 import { JwtHelper } from '../../utils/jwt.helper';
+import { ITokenPayload } from '../auth.model';
 import { AuthActionsUnion, AuthActionTypes } from './auth.action';
 
 export const REDUCER_KEY_AUTH = 'auth';
@@ -32,7 +33,7 @@ export function authReducer(state = initialState, action: AuthActionsUnion): Aut
 
 export const getAuthToken = (state: AuthState) => state.token;
 export const isAuthTokenExpired = (state: AuthState) => JwtHelper.isTokenExpired(state.token);
-export const getAuthTokenPayload = (state: AuthState) => JwtHelper.decodeToken(state.token);
+export const getAuthTokenPayload = (state: AuthState) => JwtHelper.decodeToken(state.token) as ITokenPayload;
 
 
 function getToken(): string {
