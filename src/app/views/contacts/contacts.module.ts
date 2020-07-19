@@ -18,18 +18,18 @@ import { ContactsComponent } from './contacts.component';
     ContactsComponent,
     ContactsDetailsComponent
   ],
-    imports: [
-        CommonModule,
-        ContactsRoutingModule,
-        ViewSharedModule,
-        ViewPaymentModule,
-        ContactsModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatIconModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule
-    ]
+  imports: [
+    CommonModule,
+    ContactsRoutingModule,
+    ViewSharedModule,
+    ViewPaymentModule,
+    ContactsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
+  ]
 })
 export class ViewContactsModule {}

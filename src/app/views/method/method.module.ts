@@ -11,19 +11,19 @@ import { MethodCardComponent } from './method-card.component';
 import { MethodComponent } from './method.component';
 
 @NgModule({
-    declarations: [
-        MethodComponent,
-        MethodCardComponent,
-        MethodAccountComponent
-    ],
-    imports: [
-        CommonModule,
-        MethodRoutingModule,
-        ViewSharedModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatButtonModule
-    ]
+  declarations: [
+    MethodComponent,
+    MethodCardComponent,
+    MethodAccountComponent
+  ],
+  imports: [
+    CommonModule,
+    MethodRoutingModule,
+    ViewSharedModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule
+  ]
 })
 export class ViewMethodModule {}

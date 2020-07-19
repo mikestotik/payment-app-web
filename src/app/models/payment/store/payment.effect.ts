@@ -19,35 +19,35 @@ import {
 @Injectable()
 export class PaymentEffect {
 
-    @Effect()
-    loadPayments$: Observable<Action> = this.actions$.pipe(
-        ofType(PaymentActionTypes.LOAD),
-        switchMap(() => this.paymentService
-            .getAll()
-            .pipe(
-                map(entities => new PaymentsLoadedSuccessful({ entities })),
-                catchError(error => of(new PaymentsLoadedFailure({ error })))
-            )
-        )
-    );
+  @Effect()
+  loadPayments$: Observable<Action> = this.actions$.pipe(
+    ofType(PaymentActionTypes.LOAD),
+    switchMap(() => this.paymentService
+      .getAll()
+      .pipe(
+        map(entities => new PaymentsLoadedSuccessful({ entities })),
+        catchError(error => of(new PaymentsLoadedFailure({ error })))
+      )
+    )
+  );
 
-    @Effect()
-    savePayment$: Observable<Action> = this.actions$.pipe(
-        ofType(PaymentActionTypes.SAVE),
-        switchMap((action: SavePayment) => this.paymentService
-            .save(action.payload.entity)
-            .pipe(
-                map(entity => new PaymentSavedSuccessful({ entity })),
-                tap(() => this.router.navigateByUrl(ROUTE_CONFIG.PAYMENT.getSuccessPath())),
-                catchError(error => of(new PaymentSavedFailure({ error })))
-            )
-        )
-    );
+  @Effect()
+  savePayment$: Observable<Action> = this.actions$.pipe(
+    ofType(PaymentActionTypes.SAVE),
+    switchMap((action: SavePayment) => this.paymentService
+      .save(action.payload.entity)
+      .pipe(
+        map(entity => new PaymentSavedSuccessful({ entity })),
+        tap(() => this.router.navigateByUrl(ROUTE_CONFIG.PAYMENT.getSuccessPath())),
+        catchError(error => of(new PaymentSavedFailure({ error })))
+      )
+    )
+  );
 
-    constructor(
-        private http: HttpClient,
-        private actions$: Actions,
-        private router: Router,
-        private paymentService: PaymentService) {
-    }
+  constructor(
+    private http: HttpClient,
+    private actions$: Actions,
+    private router: Router,
+    private paymentService: PaymentService) {
+  }
 }

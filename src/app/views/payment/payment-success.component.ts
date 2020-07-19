@@ -4,18 +4,18 @@ import { ClearActivePayment } from '../../models/payment/store/payment.action';
 import { AppState } from '../../store';
 
 @Component({
-    selector: 'app-payment-success',
-    templateUrl: './payment-success.component.html',
-    styleUrls: [ './payment-success.component.scss' ]
+  selector: 'app-payment-success',
+  templateUrl: './payment-success.component.html',
+  styleUrls: [ './payment-success.component.scss' ]
 })
 export class PaymentSuccessComponent implements OnInit {
 
-    constructor(
-        private store: Store<AppState>) {
-    }
+  constructor(
+    private store: Store<AppState>) {
+  }
 
-    public ngOnInit(): void {
-        this.store.dispatch(new ClearActivePayment());
-    }
+  public ngOnInit(): void {
+    this.store.dispatch(new ClearActivePayment());
+  }
 
 }

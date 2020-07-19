@@ -5,37 +5,37 @@ import { PaymentAccountState, REDUCER_KEY_PAYMENT_ACCOUNT } from './payment-acco
 export const selectPaymentAccountState = createFeatureSelector<PaymentAccountState>(REDUCER_KEY_PAYMENT_ACCOUNT);
 
 export const selectAllPaymentAccounts = createSelector(
-    selectPaymentAccountState,
-    fromPaymentAccount.selectAllPaymentAccounts
+  selectPaymentAccountState,
+  fromPaymentAccount.selectAllPaymentAccounts
 );
 
 export const selectPaymentAccountTotal = createSelector(
-    selectPaymentAccountState,
-    fromPaymentAccount.selectPaymentAccountTotal
+  selectPaymentAccountState,
+  fromPaymentAccount.selectPaymentAccountTotal
 );
 
 export const selectPaymentAccountIds = createSelector(
-    selectPaymentAccountState,
-    fromPaymentAccount.selectPaymentAccountIds
+  selectPaymentAccountState,
+  fromPaymentAccount.selectPaymentAccountIds
 );
 
 export const selectPaymentAccountEntities = createSelector(
-    selectPaymentAccountState,
-    fromPaymentAccount.selectPaymentAccountEntities
+  selectPaymentAccountState,
+  fromPaymentAccount.selectPaymentAccountEntities
 );
 
 export const selectCurrentPaymentAccountId = createSelector(
-    selectPaymentAccountState,
-    fromPaymentAccount.getSelectedPaymentAccountId
+  selectPaymentAccountState,
+  fromPaymentAccount.getSelectedPaymentAccountId
 );
 
 export const selectPaymentAccountById = createSelector(
-    selectPaymentAccountState,
-    fromPaymentAccount.getPaymentAccountById
+  selectPaymentAccountState,
+  fromPaymentAccount.getPaymentAccountById
 );
 
 export const selectCurrentPaymentAccount = createSelector(
-    selectPaymentAccountEntities,
-    selectCurrentPaymentAccountId,
-    (userEntities, userId) => userEntities[userId]
+  selectPaymentAccountEntities,
+  selectCurrentPaymentAccountId,
+  (userEntities, userId) => userEntities[userId]
 );

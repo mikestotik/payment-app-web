@@ -1,13 +1,19 @@
-<app-main-container title="Payment Method" [back]="true" (backEvent)="onBack()" actionsType="menu" [actions]="actions" (actionEvent)="onAction($event)">
-    <h4 class="section-title">Payment Cards</h4>
-    <div class="list-item" *ngFor="let item of paymentCards$ | async">
-        <app-payment-card [data]="item" (click)="onCard(item)"></app-payment-card>
-    </div>
+<app-main-container title="Payment Method"
+                    [back]="true"
+                    (backEvent)="onBack()"
+                    actionsType="menu"
+                    [actions]="actions"
+                    (actionEvent)="onAction($event)"
+>
+  <h4 class="section-title">Payment Cards</h4>
+  <div class="list-item" *ngFor="let item of paymentCards$ | async">
+    <app-payment-card [data]="item" (click)="onCard(item)"></app-payment-card>
+  </div>
 
-    <br>
+  <br>
 
-    <h4 class="section-title">Payment Accounts</h4>
-    <div class="list-item" *ngFor="let item of paymentAccount$ | async">
-        <app-payment-account [data]="item" (click)="onAccount(item)"></app-payment-account>
-    </div>
+  <h4 class="section-title">Payment Accounts</h4>
+  <div class="list-item" *ngFor="let item of paymentAccount$ | async">
+    <app-payment-account [data]="item" (click)="onAccount(item)"></app-payment-account>
+  </div>
 </app-main-container>

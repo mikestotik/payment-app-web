@@ -1,53 +1,53 @@
 <app-main-container
-        title="Make a Payment"
-        [back]="true"
-        (backEvent)="onBack()"
+  title="Make a Payment"
+  [back]="true"
+  (backEvent)="onBack()"
 >
-    <form class="make-payment" (ngSubmit)="submitForm()" [formGroup]="form">
-        <div class="make-payment__field" [routerLink]="contactsLink" [queryParams]="{from: fromPayment}">
-            <button *ngIf="!contact" mat-raised-button type="button">
-                Select Contact
-            </button>
+  <form class="make-payment" (ngSubmit)="submitForm()" [formGroup]="form">
+    <div class="make-payment__field" [routerLink]="contactsLink" [queryParams]="{from: fromPayment}">
+      <button *ngIf="!contact" mat-raised-button type="button">
+        Select Contact
+      </button>
 
-            <div *ngIf="contact" class="value">
-                <div class="value__input">
-                    <input type="hidden" [formControlName]="formFieldNames.CONTACT_ID" required>
-                </div>
-                <div class="value__preview">
-                    <app-contacts-item [data]="contact"></app-contacts-item>
-                </div>
-            </div>
+      <div *ngIf="contact" class="value">
+        <div class="value__input">
+          <input type="hidden" [formControlName]="formFieldNames.CONTACT_ID" required>
+        </div>
+        <div class="value__preview">
+          <app-contacts-item [data]="contact"></app-contacts-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="make-payment__field" [routerLink]="methodsLink" [queryParams]="{from: fromPayment}">
+      <button *ngIf="!paymentCard && !paymentAccount" mat-raised-button type="button">
+        Select Payment Method
+      </button>
+
+      <div *ngIf="paymentCard || paymentAccount" class="value">
+        <div class="value__input">
+          <input type="hidden" [formControlName]="formFieldNames.METHOD_ID" required>
+          <input type="hidden" [formControlName]="formFieldNames.METHOD_TYPE" required>
+        </div>
+        <div class="value__preview" *ngIf="paymentCard">
+          <app-payment-card [data]="paymentCard"></app-payment-card>
         </div>
 
-        <div class="make-payment__field" [routerLink]="methodsLink" [queryParams]="{from: fromPayment}">
-            <button *ngIf="!paymentCard && !paymentAccount" mat-raised-button type="button">
-                Select Payment Method
-            </button>
-
-            <div *ngIf="paymentCard || paymentAccount" class="value">
-                <div class="value__input">
-                    <input type="hidden" [formControlName]="formFieldNames.METHOD_ID" required>
-                    <input type="hidden" [formControlName]="formFieldNames.METHOD_TYPE" required>
-                </div>
-                <div class="value__preview" *ngIf="paymentCard">
-                    <app-payment-card [data]="paymentCard"></app-payment-card>
-                </div>
-
-                <div class="value__preview" *ngIf="paymentAccount">
-                    <app-payment-account [data]="paymentAccount"></app-payment-account>
-                </div>
-            </div>
+        <div class="value__preview" *ngIf="paymentAccount">
+          <app-payment-account [data]="paymentAccount"></app-payment-account>
         </div>
+      </div>
+    </div>
 
-        <div class="make-payment__field">
-            <mat-form-field class="form-field" appearance="fill">
-                <mat-label>Enter Amount</mat-label>
-                <input matInput placeholder="Amount" type="number" [formControlName]="formFieldNames.AMOUNT" required>
-            </mat-form-field>
-        </div>
+    <div class="make-payment__field">
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Enter Amount</mat-label>
+        <input matInput placeholder="Amount" type="number" [formControlName]="formFieldNames.AMOUNT" required>
+      </mat-form-field>
+    </div>
 
-        <div class="make-payment__action">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Pay</button>
-        </div>
-    </form>
+    <div class="make-payment__action">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Pay</button>
+    </div>
+  </form>
 </app-main-container>

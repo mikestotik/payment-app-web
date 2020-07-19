@@ -6,20 +6,20 @@ import { PaymentSuccessComponent } from '../views/payment/payment-success.compon
 import { PaymentComponent } from '../views/payment/payment.component';
 
 @NgModule({
-    imports: [ RouterModule.forChild([
-        {
-            path: '',
-            component: PaymentComponent
-        },
-        {
-            path: ROUTE_CONFIG.PAYMENT.SEGMENTS.CREATE,
-            component: PaymentCreateComponent
-        },
-        {
-            path: ROUTE_CONFIG.PAYMENT.SEGMENTS.SUCCESS,
-            component: PaymentSuccessComponent
-        }
-    ]) ],
-    exports: [ RouterModule ]
+  imports: [ RouterModule.forChild([
+    {
+      path: '',
+      component: PaymentComponent
+    },
+    {
+      path: ROUTE_CONFIG.PAYMENT.SEGMENTS.CREATE,
+      component: PaymentCreateComponent
+    },
+    {
+      path: ROUTE_CONFIG.PAYMENT.SEGMENTS.SUCCESS,
+      component: PaymentSuccessComponent
+    }
+  ]) ],
+  exports: [ RouterModule ]
 })
 export class PaymentRoutingModule {}

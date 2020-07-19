@@ -1,27 +1,28 @@
 <app-main-container [title]="title" [back]="true" (backEvent)="onBack()">
-    <form class="form" (ngSubmit)="submitForm()" [formGroup]="form">
-        <mat-form-field class="form__field" appearance="fill">
-            <mat-label>Account Name</mat-label>
-            <input matInput placeholder="Account Name" type="text" [formControlName]="formFieldNames.ACCOUNT_NAME" required>
-        </mat-form-field>
+  <form class="form" (ngSubmit)="submitForm()" [formGroup]="form">
+    <mat-form-field class="form__field" appearance="fill">
+      <mat-label>Account Name</mat-label>
+      <input matInput placeholder="Account Name" type="text" [formControlName]="formFieldNames.ACCOUNT_NAME" required>
+    </mat-form-field>
 
-        <mat-form-field class="form__field" appearance="fill">
-            <mat-label>Account Number</mat-label>
-            <input matInput placeholder="Account Numberr" type="number" [maxLength]="12" [formControlName]="formFieldNames.ACCOUNT_NUMBER" required>
-        </mat-form-field>
+    <mat-form-field class="form__field" appearance="fill">
+      <mat-label>Account Number</mat-label>
+      <input matInput placeholder="Account Numberr" type="number" [maxLength]="12"
+             [formControlName]="formFieldNames.ACCOUNT_NUMBER" required>
+    </mat-form-field>
 
-        <mat-form-field class="form__field" appearance="fill">
-            <mat-label>BSB</mat-label>
-            <input matInput placeholder="BSB" type="number" [maxLength]="8" [formControlName]="formFieldNames.BSB" required>
-        </mat-form-field>
+    <mat-form-field class="form__field" appearance="fill">
+      <mat-label>BSB</mat-label>
+      <input matInput placeholder="BSB" type="number" [maxLength]="8" [formControlName]="formFieldNames.BSB" required>
+    </mat-form-field>
 
-        <div class="form__field form__field_action">
-            <button mat-raised-button color="primary">{{ data && data.id ? 'Update' : 'Save' }}</button>
-        </div>
+    <div class="form__field form__field_action">
+      <button mat-raised-button color="primary">{{ data && data.id ? 'Update' : 'Save' }}</button>
+    </div>
 
-        <div class="form__field form__field_action" *ngIf="data && data.id" (click)="onDelete()">
-            <button mat-raised-button color="warn" type="button">Delete</button>
-        </div>
-    </form>
+    <div class="form__field form__field_action" *ngIf="data && data.id" (click)="onDelete()">
+      <button mat-raised-button color="warn" type="button">Delete</button>
+    </div>
+  </form>
 
 </app-main-container>

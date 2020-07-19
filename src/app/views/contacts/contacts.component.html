@@ -1,5 +1,10 @@
-<app-main-container title="Contacts" [back]="true" (backEvent)="onBack()" [actions]="actions" (actionEvent)="onAction($event)">
-    <div class="list-item" *ngFor="let contact of contacts$ | async">
-        <app-contacts-item [data]="contact" (click)="onContact(contact)"></app-contacts-item>
-    </div>
+<app-main-container title="Contacts"
+                    [back]="true"
+                    (backEvent)="onBack()"
+                    [actions]="actions"
+                    (actionEvent)="onAction($event)"
+>
+  <div class="list-item" *ngFor="let contact of contacts$ | async">
+    <app-contacts-item [data]="contact" (click)="onContact(contact)"></app-contacts-item>
+  </div>
 </app-main-container>

@@ -23,21 +23,21 @@ import { MainComponent } from '../views/main/main.component';
         {
           path: ROUTE_CONFIG.PAYMENT.SEGMENTS.ROOT,
           loadChildren: () => import('../views/payment/payment.module')
-              .then(m => m.ViewPaymentModule),
+            .then(m => m.ViewPaymentModule),
           canActivate: [ AuthGuard ]
         },
         {
           path: ROUTE_CONFIG.CONTACTS.SEGMENTS.ROOT,
           loadChildren: () => import('../views/contacts/contacts.module')
-              .then(m => m.ViewContactsModule),
+            .then(m => m.ViewContactsModule),
           canActivate: [ AuthGuard ]
         },
         {
           path: ROUTE_CONFIG.METHODS.SEGMENTS.ROOT,
           loadChildren: () => import('../views/method/method.module')
-              .then(m => m.ViewMethodModule),
+            .then(m => m.ViewMethodModule),
           canActivate: [ AuthGuard ]
-        },
+        }
       ]
     }
   ]) ],

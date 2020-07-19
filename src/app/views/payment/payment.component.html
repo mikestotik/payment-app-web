@@ -1,5 +1,10 @@
-<app-main-container title="Transactions" [back]="true" (backEvent)="onBack()" [actions]="actions" (actionEvent)="onAction($event)">
-    <div class="list-item" *ngFor="let transaction of payments$ | async">
-        <app-payment-transaction [data]="transaction"></app-payment-transaction>
-    </div>
+<app-main-container title="Transactions"
+                    [back]="true"
+                    (backEvent)="onBack()"
+                    [actions]="actions"
+                    (actionEvent)="onAction($event)"
+>
+  <div class="list-item" *ngFor="let transaction of payments$ | async">
+    <app-payment-transaction [data]="transaction"></app-payment-transaction>
+  </div>
 </app-main-container>

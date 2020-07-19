@@ -10,39 +10,39 @@ import { selectAllPayments } from '../../models/payment/store/payment.selector';
 import { AppState } from '../../store';
 
 const ACTIONS: Array<IAction> = [
-    {
-        type: ActionType.CREATE,
-        icon: 'add'
-    }
+  {
+    type: ActionType.CREATE,
+    icon: 'add'
+  }
 ];
 
 @Component({
-    selector: 'app-payment',
-    templateUrl: './payment.component.html',
-    styleUrls: [ './payment.component.scss' ]
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: [ './payment.component.scss' ]
 })
 export class PaymentComponent implements OnInit {
 
-    public actions: Array<IAction> = ACTIONS;
-    public payments$: Observable<IPayment[]>;
+  public actions: Array<IAction> = ACTIONS;
+  public payments$: Observable<IPayment[]>;
 
-    constructor(
-        private http: HttpClient,
-        private router: Router,
-        private store: Store<AppState>) {
-    }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private store: Store<AppState>) {
+  }
 
-    ngOnInit(): void {
-        this.payments$ = this.store.select(selectAllPayments);
-    }
+  ngOnInit(): void {
+    this.payments$ = this.store.select(selectAllPayments);
+  }
 
-    public onAction($event: IAction): void {
-        if ($event.type === ActionType.CREATE) {
-            this.router.navigate([ ROUTE_CONFIG.PAYMENT.getCreatePath() ]);
-        }
+  public onAction($event: IAction): void {
+    if ($event.type === ActionType.CREATE) {
+      this.router.navigate([ ROUTE_CONFIG.PAYMENT.getCreatePath() ]);
     }
+  }
 
-    public onBack(): void {
-        this.router.navigate([ '..' ]);
-    }
+  public onBack(): void {
+    this.router.navigate([ '..' ]);
+  }
 }

@@ -9,27 +9,27 @@ import { IContact } from './contacts.model';
 @Injectable()
 export class ContactsService {
 
-    private apiUrl = `${ environment.url.api }${ API_CONFIG.CONTACTS }/`;
+  private apiUrl = `${ environment.url.api }${ API_CONFIG.CONTACTS }/`;
 
-    constructor(
-        private http: HttpClient) {
-    }
+  constructor(
+    private http: HttpClient) {
+  }
 
-    public getAll(): Observable<IContact[]> {
-        return this.http.get<IContact[]>(this.apiUrl);
-    }
+  public getAll(): Observable<IContact[]> {
+    return this.http.get<IContact[]>(this.apiUrl);
+  }
 
-    public save(entity: IContact): Observable<IContact> {
-        return this.http.post<IContact>(this.apiUrl, entity);
-    }
+  public save(entity: IContact): Observable<IContact> {
+    return this.http.post<IContact>(this.apiUrl, entity);
+  }
 
-    public delete(id: number): Observable<number> {
-        return this.http.delete(this.apiUrl + id).pipe(
-            map(() => id)
-        );
-    }
+  public delete(id: number): Observable<number> {
+    return this.http.delete(this.apiUrl + id).pipe(
+      map(() => id)
+    );
+  }
 
-    public update(entity: IContact): Observable<IContact> {
-        return this.http.put<IContact>(this.apiUrl, entity);
-    }
+  public update(entity: IContact): Observable<IContact> {
+    return this.http.put<IContact>(this.apiUrl, entity);
+  }
 }

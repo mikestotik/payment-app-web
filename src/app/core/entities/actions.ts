@@ -1,18 +1,18 @@
 export enum ActionType {
-    EDIT,
-    CREATE,
-    DELETE,
-    ADD_CARD,
-    ADD_ACCOUNT
+  EDIT,
+  CREATE,
+  DELETE,
+  ADD_CARD,
+  ADD_ACCOUNT
 }
 
 export interface IAction {
-    type: ActionType;
+  type: ActionType;
 
-    /** MDI Icon {@see https://material.io/resources/icons} */
-    icon: string;
+  /** MDI Icon {@see https://material.io/resources/icons} */
+  icon: string;
 
-    data?: any;
+  data?: any;
 
-    title?: string;
+  title?: string;
 }

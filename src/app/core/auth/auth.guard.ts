@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
         if (!notExpired) {
           this.router.navigate([ ROUTE_CONFIG.AUTH.getSignInPath() ]);
         }
-      }),
+      })
     );
   }
 }
