@@ -9,13 +9,13 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Auth2Service } from '../auth2.service';
+import { AuthService } from '../auth.service';
 
 @Injectable()
 export class AuthJwtInterceptor implements HttpInterceptor {
 
   constructor(
-    public auth: Auth2Service) {}
+    public authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -32,7 +32,7 @@ export class AuthJwtInterceptor implements HttpInterceptor {
               if (err.status === 401) {
                 // redirect to the login route
                 // or show a modal
-                this.auth.collectFailedRequest(request);
+                this.authService.collectFailedRequest(request);
               }
             }
           })

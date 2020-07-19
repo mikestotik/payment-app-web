@@ -8,3 +8,13 @@ export const getAuthToken = createSelector(
     selectState,
     fromAuth.getAuthToken
 );
+
+export const isAuthTokenExpired = createSelector(
+  selectState,
+  fromAuth.isAuthTokenExpired
+);
+
+export const getAuthTokenPayload = createSelector(
+  selectState,
+  fromAuth.getAuthTokenPayload
+);

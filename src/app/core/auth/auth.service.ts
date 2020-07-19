@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -8,14 +8,28 @@ import { IUserCredentials, LogInResponse } from './auth.model';
 @Injectable()
 export class AuthService {
 
-    protected readonly apiUrl = environment.url.api;
+  public readonly cachedRequests: Array<HttpRequest<any>> = [];
 
-    constructor(
-        private http: HttpClient) {
-    }
+  private readonly apiUrl = environment.url.api;
 
-    public authenticate(credentials: IUserCredentials): Observable<LogInResponse> {
-        return this.http.post<LogInResponse>(`${ this.apiUrl }${ API_CONFIG.AUTH.AUTHENTICATE }`, credentials);
-    }
+  constructor(
+    private http: HttpClient) {
+  }
+
+  public authenticate(credentials: IUserCredentials): Observable<LogInResponse> {
+    return this.http.post<LogInResponse>(
+      `${ this.apiUrl }${ API_CONFIG.AUTH.AUTHENTICATE }`,
+      credentials
+    );
+  }
+
+  public collectFailedRequest(request: HttpRequest<any>): void {
+    this.cachedRequests.push(request);
+  }
+
+  public retryFailedRequests(): void {
+    // retry the requests. this method can
+    // be called after the token is refreshed
+  }
 }
 

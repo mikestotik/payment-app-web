@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
 import { AuthJwtInterceptor } from './core/auth/interceptors/auth-jwt.interceptor';
-import { TokenInterceptor } from './core/auth/interceptors/auth-token.interceptor';
+import { AuthTokenInterceptor } from './core/auth/interceptors/auth-token.interceptor';
 import { AuthEffect } from './core/auth/store/auth.effect';
 import { entityConfig } from './entity-metadata';
 import { ContactsModule } from './models/contacts/contacts.module';
@@ -24,57 +24,55 @@ import { PaymentModule } from './models/payment/payment.module';
 import { PaymentEffect } from './models/payment/store/payment.effect';
 
 import { AppRoutingModule } from './routing/app.routing';
-import { AuthEffects } from './models/auth/auth.effect';
 import { metaReducers, reducers } from './store';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        AuthModule.forRoot(),
-        StoreModule.forRoot(reducers, {
-            metaReducers,
-            runtimeChecks: {
-                strictStateImmutability: true,
-                strictActionImmutability: true
-            }
-        }),
-        StoreDevtoolsModule.instrument({
-            maxAge: 25,
-            logOnly: environment.production
-        }),
-        EffectsModule.forRoot([
-            AuthEffects,
-            ContactEffect,
-            PaymentCardEffect,
-            PaymentAccountEffect,
-            PaymentEffect,
-            AuthEffect
-        ]),
-        StoreRouterConnectingModule.forRoot(),
-        EntityDataModule.forRoot(entityConfig),
-        ContactsModule,
-        MethodsModule,
-        PaymentModule,
-        MatSnackBarModule
-    ],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: TokenInterceptor,
-            multi: true
-        },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthJwtInterceptor,
-            multi: true
-        }
-    ],
-    bootstrap: [ AppComponent ]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    }),
+    EffectsModule.forRoot([
+      ContactEffect,
+      PaymentCardEffect,
+      PaymentAccountEffect,
+      PaymentEffect,
+      AuthEffect
+    ]),
+    StoreRouterConnectingModule.forRoot(),
+    EntityDataModule.forRoot(entityConfig),
+    AuthModule,
+    ContactsModule,
+    MethodsModule,
+    PaymentModule,
+    MatSnackBarModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthJwtInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {}
