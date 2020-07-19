@@ -2,6 +2,37 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
 
+## Run app
+Before starting the application, you must install NPM modules:
+```bash
+npm install
+```
+
+#### Run for local backend:
+
+Before you need to run the app from this [repository](https://github.com/mikestotik/payment-app-core).
+```bash
+npm run start
+```
+
+#### Run for remote backend:
+```bash
+npm run start:prod
+```
+
+## Test Credentials
+User: Admin
+```
+username: admin@localhost
+password: admin
+```
+
+User: User
+```
+username: user@localhost
+password: user
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
