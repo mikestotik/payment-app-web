@@ -18,6 +18,7 @@ import { MethodsModule } from './models/methods/methods.module';
 import { PaymentModule } from './models/payment/payment.module';
 
 import { AppRoutingModule } from './routing/app.routing';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AppRoutingModule } from './routing/app.routing';
     ContactsModule,
     MethodsModule,
     PaymentModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
