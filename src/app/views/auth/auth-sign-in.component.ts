@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { ERROR_MESSAGE } from '../../config/messages.config';
 import { Authenticate } from '../../core/auth/store/auth.action';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 
 // todo: move to CONFIG
 const AUTH_SIGN_IN_FORM_FIELD_NAMES = {

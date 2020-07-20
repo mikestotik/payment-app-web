@@ -4,7 +4,7 @@ import { LoadContacts } from '../../models/contacts/store/contact.action';
 import { LoadPaymentAccounts } from '../../models/methods/store/payment-account.action';
 import { LoadPaymentCards } from '../../models/methods/store/payment-card.action';
 import { LoadPayments } from '../../models/payment/store/payment.action';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 
 @Component({
   template: '<router-outlet></router-outlet>'

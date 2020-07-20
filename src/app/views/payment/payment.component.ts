@@ -7,7 +7,7 @@ import { ROUTE_CONFIG } from '../../config/routes.config';
 import { ActionType, IAction } from '../../core/entities/actions';
 import { IPayment } from '../../models/payment/payment.model';
 import { selectAllPayments } from '../../models/payment/store/payment.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 
 const ACTIONS: Array<IAction> = [
   {

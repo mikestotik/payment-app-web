@@ -8,7 +8,7 @@ import { ActionType, IAction } from '../../core/entities/actions';
 import { IPaymentAccount, IPaymentCard, MethodType } from '../../models/methods/methods.model';
 import { selectAllPaymentAccounts } from '../../models/methods/store/payment-account.selector';
 import { selectAllPaymentCards } from '../../models/methods/store/payment-card.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 
 const ACTIONS: Array<IAction> = [
   {

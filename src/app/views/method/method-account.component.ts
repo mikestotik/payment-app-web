@@ -14,7 +14,7 @@ import {
   UpdatePaymentAccount
 } from '../../models/methods/store/payment-account.action';
 import { selectPaymentAccountEntities } from '../../models/methods/store/payment-account.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 import { DialogComponent } from '../shared/components/dialog/dialog.component';
 
 const TITLE = {

@@ -11,7 +11,7 @@ import { ROUTE_CONFIG } from '../../config/routes.config';
 import { IContact } from '../../models/contacts/contacts.model';
 import { DeleteContact, SaveContact, UpdateContact } from '../../models/contacts/store/contact.action';
 import { selectContactById } from '../../models/contacts/store/contact.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 import { DialogComponent } from '../shared/components/dialog/dialog.component';
 
 const TITLE = {

@@ -6,7 +6,7 @@ import { ROUTE_CONFIG } from '../../config/routes.config';
 import { ActionType, IAction } from '../../core/entities/actions';
 import { IContact } from '../../models/contacts/contacts.model';
 import { selectAllContacts } from '../../models/contacts/store/contact.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 
 const ACTIONS: Array<IAction> = [
   {

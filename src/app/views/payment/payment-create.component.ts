@@ -14,7 +14,7 @@ import { selectPaymentCardById } from '../../models/methods/store/payment-card.s
 import { IPayment } from '../../models/payment/payment.model';
 import { SavePayment, SetActivePayment, UpdateActivePayment } from '../../models/payment/store/payment.action';
 import { selectActivePayment } from '../../models/payment/store/payment.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 
 const FORM_FIELD_NAMES = {
   AMOUNT: 'amount',

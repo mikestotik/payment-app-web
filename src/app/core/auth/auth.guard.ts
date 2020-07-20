@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ROUTE_CONFIG } from '../../config/routes.config';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 import { isAuthTokenExpired } from './store/auth.selector';
 
 @Injectable()

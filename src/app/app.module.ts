@@ -3,23 +3,21 @@ import { NgModule } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { metaReducers, reducers } from './app.state';
 import { AuthModule } from './core/auth/auth.module';
 import { AuthJwtInterceptor } from './core/auth/interceptors/auth-jwt.interceptor';
 import { AuthTokenInterceptor } from './core/auth/interceptors/auth-token.interceptor';
-import { entityConfig } from './entity-metadata';
 import { ContactsModule } from './models/contacts/contacts.module';
 import { MethodsModule } from './models/methods/methods.module';
 import { PaymentModule } from './models/payment/payment.module';
 
 import { AppRoutingModule } from './routing/app.routing';
-import { metaReducers, reducers } from './store';
 
 @NgModule({
   declarations: [
@@ -43,7 +41,6 @@ import { metaReducers, reducers } from './store';
     }),
     EffectsModule.forRoot(),
     StoreRouterConnectingModule.forRoot(),
-    EntityDataModule.forRoot(entityConfig),
     AuthModule,
     ContactsModule,
     MethodsModule,

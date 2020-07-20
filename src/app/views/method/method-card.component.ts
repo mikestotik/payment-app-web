@@ -10,7 +10,7 @@ import { ROUTE_CONFIG } from '../../config/routes.config';
 import { IPaymentCard } from '../../models/methods/methods.model';
 import { DeletePaymentCard, SavePaymentCard, UpdatePaymentCard } from '../../models/methods/store/payment-card.action';
 import { selectPaymentCardEntities } from '../../models/methods/store/payment-card.selector';
-import { AppState } from '../../store';
+import { AppState } from '../../app.state';
 import { DialogComponent } from '../shared/components/dialog/dialog.component';
 
 const TITLE = {
